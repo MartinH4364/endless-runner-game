@@ -172,24 +172,8 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 9191976352490461749, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
-      propertyPath: gravity
-      value: -39.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 9191976352490461749, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
-      propertyPath: slideDrag
-      value: 0.998
-      objectReference: {fileID: 0}
-    - target: {fileID: 9191976352490461749, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
-      propertyPath: jumpHeight
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9191976352490461749, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
       propertyPath: groundDistance
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9191976352490461749, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
-      propertyPath: staminaRegenRate
-      value: 5
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -231,7 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveDeathEmpty
   player: {fileID: 1480243817}
-  speed: 2
+  speed: 10
 --- !u!4 &1864399160
 Transform:
   m_ObjectHideFlags: 0
@@ -280,6 +264,13 @@ MonoBehaviour:
   - {fileID: 1502322641264748184, guid: 6bf51f1c457bbe04d861c47d4f7bd7c7, type: 3}
   - {fileID: 7318620681286768807, guid: 950d6d480c556f54488166ad9b80ce1b, type: 3}
   - {fileID: 8489103478700582717, guid: 4a258811ca47e164089bd5fbeaf65b6f, type: 3}
+  - {fileID: 4260990290892126519, guid: 76aee7cfd78a7ad40a5db0ab91e55139, type: 3}
+  - {fileID: 1667951650333700616, guid: c4796999734b0474980425bec7a417bd, type: 3}
+  - {fileID: 9064524224028027891, guid: 5ac38c847db1ea64ab62c63ecc2c2cb1, type: 3}
+  - {fileID: 3526406111129691004, guid: 02860604dbda6cc48bfd4fc163f4ebc1, type: 3}
+  - {fileID: 8244087615829324878, guid: 756dd860e8f47da4cb4537bceaa84088, type: 3}
+  - {fileID: 5567611397588477998, guid: 68dbe1dadccb1844ab3bfea13bf6746e, type: 3}
+  - {fileID: 930375786949514278, guid: db0aa91833f13384abab0f415c2ac4c5, type: 3}
   player: {fileID: 1480243817}
   spawnDistance: 200
 --- !u!4 &1978784706

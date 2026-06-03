@@ -770,18 +770,18 @@ MonoBehaviour:
   controller: {fileID: 8354225893022928970}
   mainCamera: {fileID: 5673349054663352443}
   speed: 12
-  gravity: -9.81
-  jumpHeight: 3
+  gravity: -39.24
+  jumpHeight: 5
   jumpCost: 10
   groundCheck: {fileID: 2455807324983372831}
-  groundDistance: 0.05
+  groundDistance: 0.25
   groundMask:
     serializedVersion: 2
     m_Bits: 64
   stamina: 100
-  staminaRegenRate: 2
+  staminaRegenRate: 5
   airResistance: 0.9
-  slideDrag: 0.995
+  slideDrag: 0.998
   sprintStaminaDrain: 5
   sprintMultiplier: 2
 --- !u!1 &8661527526869479657
