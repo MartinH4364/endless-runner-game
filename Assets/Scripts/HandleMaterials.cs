@@ -12,6 +12,7 @@ public class HandleMaterials : MonoBehaviour
     Material material;
     float shrinkTime = 5;
     GameObject deathEmpty;
+    public Texture texture;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -59,7 +60,7 @@ public class HandleMaterials : MonoBehaviour
         float originalZ = transform.localScale.z;
         material.shader = Shader.Find("Universal Render Pipeline/Unlit");
         material.SetColor("_BaseColor", Color.red);
-        material.SetTexture("_BaseMap", null);
+        material.SetTexture("_BaseMap", texture);
         float timeUntilDestruction = shrinkTime;
         while(timeUntilDestruction >= 0)
         {

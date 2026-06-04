@@ -242,6 +242,7 @@ MonoBehaviour:
   y: 0
   z: 1
   tileSize: 0.4
+  texture: {fileID: 2800000, guid: ca23825383f281444a63aed5810240dd, type: 3}
 --- !u!1 &3736790371385635473
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,6 +373,7 @@ MonoBehaviour:
   y: 0
   z: 1
   tileSize: 0.4
+  texture: {fileID: 2800000, guid: ca23825383f281444a63aed5810240dd, type: 3}
 --- !u!1 &5075514362328834823
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,6 +504,7 @@ MonoBehaviour:
   y: 0
   z: 1
   tileSize: 0.4
+  texture: {fileID: 2800000, guid: ca23825383f281444a63aed5810240dd, type: 3}
 --- !u!1 &5626914079468065505
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,6 +635,7 @@ MonoBehaviour:
   y: 0
   z: 1
   tileSize: 0.4
+  texture: {fileID: 2800000, guid: ca23825383f281444a63aed5810240dd, type: 3}
 --- !u!1 &5760410937128317839
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,6 +766,7 @@ MonoBehaviour:
   y: 0
   z: 1
   tileSize: 0.4
+  texture: {fileID: 2800000, guid: ca23825383f281444a63aed5810240dd, type: 3}
 --- !u!1 &6043404188274200761
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,6 +897,7 @@ MonoBehaviour:
   y: 0
   z: 1
   tileSize: 0.4
+  texture: {fileID: 2800000, guid: ca23825383f281444a63aed5810240dd, type: 3}
 --- !u!1 &8885041978063553286
 GameObject:
   m_ObjectHideFlags: 0

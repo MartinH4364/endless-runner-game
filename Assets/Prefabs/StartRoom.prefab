@@ -165,6 +165,7 @@ MonoBehaviour:
   y: 1
   z: 0
   tileSize: 4
+  texture: {fileID: 2800000, guid: ca23825383f281444a63aed5810240dd, type: 3}
 --- !u!1 &3971555161828164184
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,6 +295,7 @@ MonoBehaviour:
   y: 1
   z: 0
   tileSize: 4
+  texture: {fileID: 2800000, guid: ca23825383f281444a63aed5810240dd, type: 3}
 --- !u!1 &5162250156784489725
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,6 +425,7 @@ MonoBehaviour:
   y: 0
   z: 1
   tileSize: 4
+  texture: {fileID: 2800000, guid: ca23825383f281444a63aed5810240dd, type: 3}
 --- !u!1 &7375736136076408063
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +555,7 @@ MonoBehaviour:
   y: 0
   z: 1
   tileSize: 4
+  texture: {fileID: 2800000, guid: ca23825383f281444a63aed5810240dd, type: 3}
 --- !u!1 &9195805373322981350
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,3 +685,4 @@ MonoBehaviour:
   y: 1
   z: 0
   tileSize: 4
+  texture: {fileID: 2800000, guid: ca23825383f281444a63aed5810240dd, type: 3}
