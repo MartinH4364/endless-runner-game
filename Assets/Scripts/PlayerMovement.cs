@@ -88,22 +88,19 @@ public class PlayerMovement : MonoBehaviour
     {
         float Horizontal = Input.GetAxis("Horizontal");
         float Vertical = Input.GetAxis("Vertical");
-
-        if(isGrounded)
-        {
-            if(!sliding)
+        if(!sliding){
+            if(isGrounded)
             {
                 velocity.z = Mathf.Cos(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Vertical * speed * speedMultiplier;
                 velocity.x = Mathf.Sin(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Vertical * speed * speedMultiplier;
                 velocity.z += Mathf.Sin(-mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Horizontal * speed * speedMultiplier;
                 velocity.x += Mathf.Cos(-mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Horizontal * speed * speedMultiplier;
+            } else
+            {
+                velocity.z = velocity.z + (((Mathf.Cos(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Vertical) + Mathf.Sin(-mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Horizontal) * speed * speedMultiplier-velocity.z) * airResistance;
+                velocity.x = velocity.x + (((Mathf.Sin(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Vertical) + Mathf.Cos(-mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Horizontal) * speed * speedMultiplier-velocity.x) * airResistance;
             }
-        } else
-        {
-            velocity.z = velocity.z + (((Mathf.Cos(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Vertical) + Mathf.Sin(-mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Horizontal) * speed * speedMultiplier-velocity.z) * airResistance;
-            velocity.x = velocity.x + (((Mathf.Sin(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Vertical) + Mathf.Cos(-mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Horizontal) * speed * speedMultiplier-velocity.x) * airResistance;
-        }
-        if (sliding)
+        }else
         {
             velocity.z *= slideDrag;
             velocity.x *= slideDrag;
