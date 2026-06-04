@@ -215,7 +215,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveDeathEmpty
   player: {fileID: 1480243817}
-  speed: 10
+  baseSpeed: 5
+  distanceForSpeedIncrease: 25
 --- !u!4 &1864399160
 Transform:
   m_ObjectHideFlags: 0

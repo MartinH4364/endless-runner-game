@@ -3,7 +3,8 @@ using UnityEngine;
 public class MoveDeathEmpty : MonoBehaviour
 {
     public GameObject player;
-    public float speed = 2;
+    public float baseSpeed = 5;
+    public float distanceForSpeedIncrease = 25;
     bool activated = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,7 +17,7 @@ public class MoveDeathEmpty : MonoBehaviour
     void Update()
     {
         if(activated){
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
+            transform.Translate(Vector3.forward * Time.deltaTime * (baseSpeed + ScoreManager.score/distanceForSpeedIncrease));
         } else
         {
             if(player.transform.position.z >= 20)
