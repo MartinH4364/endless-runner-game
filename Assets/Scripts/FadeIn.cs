@@ -24,5 +24,6 @@ public class FadeIn : MonoBehaviour
             image.color = color;
             yield return null;
         }
+        image.enabled = false;
     }
 }
