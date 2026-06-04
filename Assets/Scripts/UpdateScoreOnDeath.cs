@@ -9,5 +9,6 @@ public class UpdateScoreOnDeath : MonoBehaviour
     void Start()
     {
         scoreText.text = "Score: " + ScoreManager.score;
+        Cursor.lockState = CursorLockMode.None;
     }
 }
