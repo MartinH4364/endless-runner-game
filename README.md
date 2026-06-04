@@ -18,3 +18,4 @@ Features
 ## Credits
 
 Brackeys for various tutorials
+Inspired by Grace and White Knuckle
