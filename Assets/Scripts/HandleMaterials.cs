@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Timers;
 using UnityEngine;
 
 public class HandleMaterials : MonoBehaviour
@@ -13,9 +12,6 @@ public class HandleMaterials : MonoBehaviour
     Material material;
     float shrinkTime = 5;
     GameObject deathEmpty;
-
-    [ContextMenu("updateTiling")]
-    [ContextMenu("destroyObject")]
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
