@@ -6,6 +6,7 @@ A movement focused endless platformer.
 ^^Open Link Above^^
 
 Features
+
 *Basic movement system with a stamina bar
 
 *Endlessly generating levels
