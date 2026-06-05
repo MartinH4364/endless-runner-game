@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 890058745852547332}
   - component: {fileID: 4707706022408508329}
   - component: {fileID: 2975084192229954300}
+  - component: {fileID: 5132159982369897777}
   m_Layer: 0
   m_Name: StaminaOrb
   m_TagString: Untagged
@@ -134,9 +135,21 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5132159982369897777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582071248935072730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d778b1a046f8294fa22f772ded5d3d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'

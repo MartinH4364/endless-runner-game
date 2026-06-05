@@ -138,10 +138,10 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.C))
         {
             sliding = true;
-            mainCamera.transform.localPosition = new Vector3(0,mainCamera.transform.localPosition.y + (0.3f-mainCamera.transform.localPosition.y) * 0.08f,0);
+            mainCamera.transform.localPosition = new Vector3(0,mainCamera.transform.localPosition.y + (1.0f-mainCamera.transform.localPosition.y) * 0.08f,0);
         } else
         {
-            mainCamera.transform.localPosition = new Vector3(0,mainCamera.transform.localPosition.y + (0.8f-mainCamera.transform.localPosition.y) * 0.08f,0);
+            mainCamera.transform.localPosition = new Vector3(0,mainCamera.transform.localPosition.y + (1.6f-mainCamera.transform.localPosition.y) * 0.08f,0);
             sliding = false;
         }
     }
