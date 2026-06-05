@@ -18,7 +18,7 @@ public class UpdateStaminaBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        staminaPercent = Player.GetComponent<PlayerMovement>().stamina;
+        staminaPercent = PlayerMovement.stamina;
         rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, maxWidth * staminaPercent / 100);
         if(backgrondTransform.rect.width > rectTransform.rect.width){
             backgrondTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, backgrondTransform.rect.width + (rectTransform.rect.width - backgrondTransform.rect.width) * 0.03f);

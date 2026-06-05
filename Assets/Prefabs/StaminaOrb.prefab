@@ -153,3 +153,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d778b1a046f8294fa22f772ded5d3d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  staminaRegenAmount: 50
+  spawnChance: 0.4

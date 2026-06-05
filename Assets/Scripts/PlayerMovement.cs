@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
-    public float stamina = 100;
+    public static float stamina = 100;
     public float staminaRegenRate = 2;
     float speedMultiplier = 1;
 
@@ -99,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
                 velocity.x = velocity.x + (((Mathf.Sin(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Vertical) + Mathf.Cos(-mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Horizontal) * speed * speedMultiplier-velocity.x) * airResistance;
             }
         }else
-        {
+        {   
             velocity.z *= slideDrag;
             velocity.x *= slideDrag;
         }
@@ -135,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
 
     void handleSlide()
     {
-        if (Input.GetKey(KeyCode.C))
+        if (Input.GetKey(KeyCode.C) && isGrounded)
         {
             sliding = true;
             mainCamera.transform.localPosition = new Vector3(0,mainCamera.transform.localPosition.y + (1.0f-mainCamera.transform.localPosition.y) * 0.08f,0);
