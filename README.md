@@ -18,4 +18,5 @@ Features
 ## Credits
 
 Brackeys for various tutorials
+Gabriel Aguiar Prod. for VFX tutorials
 Inspired by Grace and White Knuckle
