@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/StartMenu.unity
+    path: Assets/Resources/Scenes/StartMenu.unity
     guid: ad227851722b3804ca5a8ff003ae8608
   - enabled: 1
-    path: Assets/Scenes/Game.unity
+    path: Assets/Resources/Scenes/Game.unity
     guid: 2691483605e3f0a4e854dae8e5ab14a9
   - enabled: 1
-    path: Assets/Scenes/DeathScreen.unity
+    path: Assets/Resources/Scenes/DeathScreen.unity
     guid: efbd9b713c77b7e4d9020f7b09d9d5c6
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

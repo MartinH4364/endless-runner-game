@@ -127,6 +127,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1798649285990510951, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
+      propertyPath: m_Name
+      value: Cursor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3665759309240505314, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
+      propertyPath: m_Name
+      value: DieAnimation
+      objectReference: {fileID: 0}
     - target: {fileID: 5033940932284976668, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -166,6 +174,14 @@ PrefabInstance:
     - target: {fileID: 5033940932284976668, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739848875231546157, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
+      propertyPath: m_Color.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696126153275248038, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
+      propertyPath: m_Name
+      value: Score
       objectReference: {fileID: 0}
     - target: {fileID: 8542371362370924125, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
       propertyPath: m_Name
@@ -268,8 +284,10 @@ MonoBehaviour:
   - {fileID: 8244087615829324878, guid: 756dd860e8f47da4cb4537bceaa84088, type: 3}
   - {fileID: 5567611397588477998, guid: 68dbe1dadccb1844ab3bfea13bf6746e, type: 3}
   - {fileID: 930375786949514278, guid: db0aa91833f13384abab0f415c2ac4c5, type: 3}
+  upgradeRoom: {fileID: 7948800221293348715, guid: 61134f9b2e642ae41830971e806db358, type: 3}
   player: {fileID: 1480243817}
   spawnDistance: 200
+  roomsPerUpgradeRoom: 2
 --- !u!4 &1978784706
 Transform:
   m_ObjectHideFlags: 0
