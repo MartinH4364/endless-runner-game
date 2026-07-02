@@ -405,6 +405,7 @@ GameObject:
   - component: {fileID: 9086497727612264390}
   - component: {fileID: 5006717593619596168}
   - component: {fileID: 7733041420383110259}
+  - component: {fileID: 4473467888071554611}
   m_Layer: 6
   m_Name: BlockerWall
   m_TagString: Untagged
@@ -546,6 +547,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe07a62d3ffebd4a8aff35c18699e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &4473467888071554611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6165501334332748022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ab3cdd3fcb205b4faa2ff74cf7d9d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  Upgrades:
+  - {fileID: 6784601135402634791, guid: ba3568dae21d44446a925e97a60c9248, type: 3}
+  - {fileID: 2155578767708504277, guid: bed13e67ce7358d488ac9b7a1302d0d4, type: 3}
+  - {fileID: 2662207208159053174, guid: ffda85f0f8c8ec2448087780fc42f1c0, type: 3}
+  - {fileID: 6850947004646156968, guid: 03114aa6e7d3baa4fa0d32e2ad51ab97, type: 3}
 --- !u!1 &7307088352839669734
 GameObject:
   m_ObjectHideFlags: 0

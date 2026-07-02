@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - UpgradeRoomButton
+  - Upgrade
   layers:
   - Default
   - TransparentFX

@@ -2,11 +2,7 @@ using UnityEngine;
 
 public class CastRay : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public float range = 15;
 
     // Update is called once per frame
     void Update()
@@ -21,12 +17,15 @@ public class CastRay : MonoBehaviour
     {
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f,0.5f,0));
 
-        if(Physics.Raycast(ray, out RaycastHit raycastHit, 10)){
+        if(Physics.Raycast(ray, out RaycastHit raycastHit, range)){
             GameObject hitObject = raycastHit.collider.gameObject;
             if(hitObject.tag == "UpgradeRoomButton")
             {
                 hitObject.GetComponent<OnUpgradeRoomButtonClicked>().onClick();
-            }        
+            }else if(hitObject.tag == "Upgrade")
+            {
+                hitObject.GetComponent<UpgradeManager>().onClick();
+            }
         }
     }
 }
