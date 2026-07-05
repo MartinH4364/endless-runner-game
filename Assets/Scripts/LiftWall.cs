@@ -7,19 +7,29 @@ public class LiftWall : MonoBehaviour
 {
     float wallLiftSpeed = 160;
 
+    public AudioSource audioSource;
+    public AudioClip selectUpgradeSound;
+    public AudioClip liftWallSound;
+
     IEnumerator liftWall()
     {
         float elapsedTime = 0;
+        audioSource.PlayOneShot(selectUpgradeSound);
         while(elapsedTime <= 0.5)
         {
             elapsedTime += Time.deltaTime;
             yield return null;
         }
         elapsedTime = 0;
+        audioSource.PlayOneShot(liftWallSound);
         while(elapsedTime <= 20 / wallLiftSpeed)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y + wallLiftSpeed * Time.deltaTime, transform.position.z);
             elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        while (audioSource.isPlaying)
+        {
             yield return null;
         }
         gameObject.SetActive(false);

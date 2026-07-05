@@ -7,6 +7,8 @@ public class UpgradeCalculator : MonoBehaviour
     public static int Sprint = 0;
     public static int Stamina = 0;
 
+    public static int TotalUpgrades = 0;
+
     float baseJump = 0;
     float baseSpeed = 0;
     float baseSprint = 0;
@@ -29,5 +31,7 @@ public class UpgradeCalculator : MonoBehaviour
         playerMovement.speed = baseSpeed * (1 + Speed * 0.5f);
         playerMovement.sprintMultiplier = baseSprint * (1 + Sprint * 0.5f);
         playerMovement.staminaRegenRate = baseStamina * (1 + Stamina);
+
+        TotalUpgrades = Speed + Sprint + Jump + Stamina;
     }
 }

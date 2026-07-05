@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -5,6 +6,9 @@ public class StaminaOrbManager : MonoBehaviour
 {
     public float staminaRegenAmount = 50;
     public float spawnChance = 0.1f;
+
+    public AudioSource humSound;
+    public AudioClip collectSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,6 +27,10 @@ public class StaminaOrbManager : MonoBehaviour
             {
                 PlayerMovement.stamina = 100;
             }
+
+            humSound.Stop();
+            Camera.main.GetComponentInParent<AudioSource>().PlayOneShot(collectSound);
+
             Destroy(gameObject);
         }
     }

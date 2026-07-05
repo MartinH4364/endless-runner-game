@@ -284,6 +284,8 @@ MonoBehaviour:
   - {fileID: 8244087615829324878, guid: 756dd860e8f47da4cb4537bceaa84088, type: 3}
   - {fileID: 5567611397588477998, guid: 68dbe1dadccb1844ab3bfea13bf6746e, type: 3}
   - {fileID: 930375786949514278, guid: db0aa91833f13384abab0f415c2ac4c5, type: 3}
+  brokenRooms:
+  - {fileID: 245213491411681939, guid: ebeea8359feaca24687a9988e43df3bb, type: 3}
   upgradeRoom: {fileID: 7948800221293348715, guid: 61134f9b2e642ae41830971e806db358, type: 3}
   player: {fileID: 1480243817}
   spawnDistance: 200

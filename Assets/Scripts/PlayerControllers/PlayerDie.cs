@@ -9,11 +9,21 @@ public class PlayerDie : MonoBehaviour
 
     public float deathDelayUntilRestart = 5;
 
+    public AudioController audioController;
+
+    bool dead = false;
+
+    void Start()
+    {
+        dead = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.y <= deathHeight)
+        if(transform.position.y <= deathHeight && dead == false)
         {
+            dead = true;
             image.GetComponent<Animator>().enabled = true;
             StartCoroutine(loadMenu());
         }
@@ -21,6 +31,7 @@ public class PlayerDie : MonoBehaviour
     IEnumerator loadMenu()
     {
         float elapsedTime = 0;
+        audioController.playDieSound();
         while(elapsedTime < deathDelayUntilRestart)
         {
             elapsedTime += Time.deltaTime;

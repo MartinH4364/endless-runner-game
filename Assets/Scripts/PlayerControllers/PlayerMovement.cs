@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
 
     Vector3 velocity;
-    bool isGrounded;
+    public bool isGrounded;
 
     public static float stamina = 100;
     public float staminaRegenRate = 2;
@@ -29,8 +29,10 @@ public class PlayerMovement : MonoBehaviour
 
     public float sprintStaminaDrain = 5;
     public float sprintMultiplier = 2;
-    bool sprinting = false;
+    public bool sprinting = false;
     bool sliding = false;
+
+    public bool walking = false;
 
     void Start()
     {
@@ -86,6 +88,16 @@ public class PlayerMovement : MonoBehaviour
     {
         float Horizontal = Input.GetAxis("Horizontal");
         float Vertical = Input.GetAxis("Vertical");
+
+        if(Horizontal == 0 && Vertical == 0)
+        {
+            walking = false;
+        }
+        else
+        {
+            walking = true;
+        }
+
         if(!sliding){
             if(isGrounded)
             {
