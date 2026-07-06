@@ -28,9 +28,9 @@ public class UpgradeCalculator : MonoBehaviour
     void Update()
     {
         playerMovement.jumpHeight = baseJump * (1 + Jump * 0.5f);
-        playerMovement.speed = baseSpeed * (1 + Speed * 0.5f);
-        playerMovement.sprintMultiplier = baseSprint * (1 + Sprint * 0.5f);
-        playerMovement.staminaRegenRate = baseStamina * (1 + Stamina);
+        playerMovement.speed = baseSpeed * (1 + Speed * 0.25f);
+        playerMovement.sprintMultiplier = baseSprint * (1 + Sprint * 0.25f);
+        playerMovement.staminaRegenRate = baseStamina * (1 + Stamina * 0.5f);
 
         TotalUpgrades = Speed + Sprint + Jump + Stamina;
     }

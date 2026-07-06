@@ -21,8 +21,9 @@ public class PlayerMovement : MonoBehaviour
     public float staminaRegenRate = 2;
     float speedMultiplier = 1;
 
-    public float airResistance = 0.9f;
+    public float airDrag = 0.9f;
     public float slideDrag = 0.995f;
+    public float groundDrag = 0.9f;
 
     bool previousGrounded = true;
     bool canJump = true;
@@ -34,26 +35,31 @@ public class PlayerMovement : MonoBehaviour
 
     public bool walking = false;
 
+    public float dashPower = 20f;
+
     void Start()
     {
 
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        handleJump();
-
         handleSlide();
+
+        handleDrag();
+
+        handleJump();
 
         handleSprint();
 
         handleWalk();
 
         handleStamina();
+
+        handleAbilities();
 
         velocity.y += gravity * Time.deltaTime;
 
@@ -89,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
         float Horizontal = Input.GetAxis("Horizontal");
         float Vertical = Input.GetAxis("Vertical");
 
-        if(Horizontal == 0 && Vertical == 0)
+        if(Horizontal == 0 && Vertical == 0 || sliding)
         {
             walking = false;
         }
@@ -101,19 +107,37 @@ public class PlayerMovement : MonoBehaviour
         if(!sliding){
             if(isGrounded)
             {
-                velocity.z = Mathf.Cos(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Vertical * speed * speedMultiplier;
-                velocity.x = Mathf.Sin(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Vertical * speed * speedMultiplier;
-                velocity.z += Mathf.Sin(-mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Horizontal * speed * speedMultiplier;
-                velocity.x += Mathf.Cos(-mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Horizontal * speed * speedMultiplier;
+                velocity.z += Mathf.Cos(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Vertical * (speed * (1-groundDrag)) * speedMultiplier;
+                velocity.x += Mathf.Sin(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Vertical * (speed * (1-groundDrag)) * speedMultiplier;
+                velocity.z += Mathf.Sin(-mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Horizontal * (speed * (1-groundDrag)) * speedMultiplier;
+                velocity.x += Mathf.Cos(-mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Horizontal * (speed * (1-groundDrag)) * speedMultiplier;
             } else
             {
-                velocity.z = velocity.z + (((Mathf.Cos(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Vertical) + Mathf.Sin(-mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Horizontal) * speed * speedMultiplier-velocity.z) * airResistance;
-                velocity.x = velocity.x + (((Mathf.Sin(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Vertical) + Mathf.Cos(-mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Horizontal) * speed * speedMultiplier-velocity.x) * airResistance;
+                velocity.z += Mathf.Cos(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Vertical * (speed * (1-airDrag)) * speedMultiplier;
+                velocity.x += Mathf.Sin(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Vertical * (speed * (1-airDrag)) * speedMultiplier;
+                velocity.z += Mathf.Sin(-mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Horizontal * (speed * (1-airDrag)) * speedMultiplier;
+                velocity.x += Mathf.Cos(-mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Horizontal * (speed * (1-airDrag)) * speedMultiplier;
             }
-        }else
-        {   
-            velocity.z *= slideDrag;
-            velocity.x *= slideDrag;
+        }
+    }
+
+    void handleDrag()
+    {
+        if(isGrounded){
+            if (sliding)
+            {
+                velocity.z *= slideDrag;
+                velocity.x *= slideDrag;
+            }
+            else
+            {
+                velocity.x *= groundDrag;
+                velocity.z *= groundDrag;
+            }
+        } else
+        {
+            velocity.z *= airDrag;
+            velocity.x *= airDrag;
         }
     }
 
@@ -156,5 +180,20 @@ public class PlayerMovement : MonoBehaviour
             mainCamera.transform.localPosition = new Vector3(0,mainCamera.transform.localPosition.y + (1.6f-mainCamera.transform.localPosition.y) * 0.08f,0);
             sliding = false;
         }
+    }
+
+    void handleAbilities()
+    {
+        if(Input.GetKey(KeyCode.E) && isGrounded)
+        {
+            Dash();
+        }
+    }
+
+    public void Dash()
+    {
+        velocity.z += Mathf.Cos(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Mathf.Cos(mainCamera.transform.eulerAngles.x * Mathf.Deg2Rad) * dashPower;
+        velocity.x += Mathf.Sin(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Mathf.Cos(mainCamera.transform.eulerAngles.x * Mathf.Deg2Rad) *  dashPower;
+        velocity.y += -Mathf.Sin(mainCamera.transform.eulerAngles.x * Mathf.Deg2Rad) * dashPower;
     }
 }

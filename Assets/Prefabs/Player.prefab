@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 1205942236696766250}
   - component: {fileID: 5739848875231546157}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Cursor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -543,7 +543,7 @@ GameObject:
   - component: {fileID: 5355857675618134971}
   - component: {fileID: 2115480226857697718}
   m_Layer: 5
-  m_Name: Image
+  m_Name: DieAnimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -813,7 +813,7 @@ GameObject:
   - component: {fileID: 9152921901631235516}
   - component: {fileID: 5929633674193190952}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1049,12 +1049,14 @@ MonoBehaviour:
     m_Bits: 64
   isGrounded: 0
   staminaRegenRate: 5
-  airResistance: 0.9
-  slideDrag: 0.998
+  airDrag: 0.975
+  slideDrag: 0.98
+  groundDrag: 0.5
   sprintStaminaDrain: 5
   sprintMultiplier: 2
   sprinting: 0
   walking: 0
+  dashPower: 30
 --- !u!114 &1846779449025142917
 MonoBehaviour:
   m_ObjectHideFlags: 0

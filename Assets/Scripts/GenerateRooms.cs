@@ -21,6 +21,7 @@ public class GenerateRooms : MonoBehaviour
     void Start()
     {
         nextUpgradeRoom = roomsPerUpgradeRoom;
+        inUpgradeRoom = false;
     }
 
     // Update is called once per frame
@@ -42,7 +43,7 @@ public class GenerateRooms : MonoBehaviour
             brokenRoomChance = 0.1f;
         }else if(UpgradeCalculator.TotalUpgrades >= 5)
         {
-            brokenRoomChance = 0.25f;
+            brokenRoomChance = 0.3f;
         }
 
         if(roomsSpawned != nextUpgradeRoom - 1){
