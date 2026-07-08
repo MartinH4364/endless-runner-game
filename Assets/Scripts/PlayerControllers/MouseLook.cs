@@ -9,6 +9,8 @@ public class MouseLook : MonoBehaviour
     float xRotation = 0f;
     float yRotation = 0f;
 
+    public bool doingSomethingCool = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,8 +27,9 @@ public class MouseLook : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f,90f);
 
         yRotation += mouseX;
-
-        transform.localRotation = Quaternion.Euler(xRotation,yRotation,0f);
-
+        
+        if(!doingSomethingCool){
+            transform.localRotation = Quaternion.Euler(xRotation,yRotation,0f);
+        }
     }
 }

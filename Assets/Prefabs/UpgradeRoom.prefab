@@ -550,7 +550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   audioSource: {fileID: 9002813299534350252}
   selectUpgradeSound: {fileID: 8300000, guid: 6c7a15a8ca7413a4aa8389c6ae6f9dfe, type: 3}
-  liftWallSound: {fileID: 8300000, guid: 56729f67c42702e44bde690e57f8e9bf, type: 3}
+  liftWallSound: {fileID: 8300000, guid: cd8f191528b09444fa3a3e5da6a62ffd, type: 3}
 --- !u!114 &4473467888071554611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,6 +568,7 @@ MonoBehaviour:
   - {fileID: 2155578767708504277, guid: bed13e67ce7358d488ac9b7a1302d0d4, type: 3}
   - {fileID: 2662207208159053174, guid: ffda85f0f8c8ec2448087780fc42f1c0, type: 3}
   - {fileID: 6850947004646156968, guid: 03114aa6e7d3baa4fa0d32e2ad51ab97, type: 3}
+  - {fileID: 4690805130459044867, guid: df63dfb2682eb7b49b632208ab2524f1, type: 3}
 --- !u!82 &9002813299534350252
 AudioSource:
   m_ObjectHideFlags: 0

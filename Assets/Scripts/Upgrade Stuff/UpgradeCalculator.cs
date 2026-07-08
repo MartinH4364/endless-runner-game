@@ -6,6 +6,7 @@ public class UpgradeCalculator : MonoBehaviour
     public static int Speed = 0;
     public static int Sprint = 0;
     public static int Stamina = 0;
+    public static int SlowDestruction = 0;
 
     public static int TotalUpgrades = 0;
 
@@ -13,8 +14,11 @@ public class UpgradeCalculator : MonoBehaviour
     float baseSpeed = 0;
     float baseSprint = 0;
     float baseStamina = 0;
+    float baseDeathSpeed = 0;
 
     public PlayerMovement playerMovement;
+    public GameObject deathEmpty;
+    MoveDeathEmpty moveDeathEmpty;
 
     void Start()
     {
@@ -22,6 +26,9 @@ public class UpgradeCalculator : MonoBehaviour
         baseSpeed = playerMovement.speed;
         baseSprint = playerMovement.sprintMultiplier;
         baseStamina = playerMovement.staminaRegenRate;
+
+        moveDeathEmpty = deathEmpty.GetComponent<MoveDeathEmpty>();
+        baseDeathSpeed = moveDeathEmpty.baseSpeed;
     }
 
     // Update is called once per frame
@@ -31,7 +38,8 @@ public class UpgradeCalculator : MonoBehaviour
         playerMovement.speed = baseSpeed * (1 + Speed * 0.25f);
         playerMovement.sprintMultiplier = baseSprint * (1 + Sprint * 0.25f);
         playerMovement.staminaRegenRate = baseStamina * (1 + Stamina * 0.5f);
+        moveDeathEmpty.baseSpeed = baseDeathSpeed * Mathf.Pow(0.8f, SlowDestruction);
 
-        TotalUpgrades = Speed + Sprint + Jump + Stamina;
+        TotalUpgrades = Speed + Sprint + Jump + Stamina + SlowDestruction;
     }
 }

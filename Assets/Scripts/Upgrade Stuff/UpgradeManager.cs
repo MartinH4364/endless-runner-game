@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Scripting.APIUpdating;
 
 public class UpgradeManager : MonoBehaviour
 {
@@ -46,6 +45,10 @@ public class UpgradeManager : MonoBehaviour
             if(name == "StaminaUpgrade")
             {
                 UpgradeCalculator.Stamina += 1;
+            }
+            if(name == "SlowDeathEmptyUpgrade")
+            {
+                UpgradeCalculator.SlowDestruction += 1;
             }
         }
 

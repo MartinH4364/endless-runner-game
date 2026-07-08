@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -15,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
 
     Vector3 velocity;
+    Vector3 velocityQueue;
     public bool isGrounded;
 
     public static float stamina = 100;
@@ -36,6 +38,15 @@ public class PlayerMovement : MonoBehaviour
     public bool walking = false;
 
     public float dashPower = 20f;
+    public float dashHorizontalMultiplier = 2;
+    
+    public float flipPower = 80f;
+
+    public float maxAirJumps = 1;
+    float airJumps;
+
+    float slideSlam = 1;
+    float prevYVel = 0;
 
     void Start()
     {
@@ -47,11 +58,11 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
+        handleJump();
+
         handleSlide();
 
         handleDrag();
-
-        handleJump();
 
         handleSprint();
 
@@ -75,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if(velocity.y < 0)
             {
-                velocity.y = -0f;
+                velocity.y = 0f;
             }
 
             if(Input.GetButton("Jump") && stamina >= jumpCost && canJump)
@@ -84,7 +95,20 @@ public class PlayerMovement : MonoBehaviour
                 stamina -= jumpCost;
                 canJump = false;
             }
+
+            airJumps = maxAirJumps;
         } else
+        {
+            if(Input.GetButton("Jump") && stamina >= jumpCost && canJump && airJumps > 0)
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+                stamina -= jumpCost;
+                canJump = false;
+                airJumps -= 1;
+            }
+        }
+
+        if (!Input.GetButton("Jump"))
         {
             canJump = true;
         }
@@ -173,6 +197,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.C) && isGrounded)
         {
+            if(slideSlam > 0 && prevYVel < 0)
+            {
+                velocity.z += Mathf.Cos(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * -prevYVel;
+                velocity.x += Mathf.Sin(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * -prevYVel;
+            }
             sliding = true;
             mainCamera.transform.localPosition = new Vector3(0,mainCamera.transform.localPosition.y + (1.0f-mainCamera.transform.localPosition.y) * 0.08f,0);
         } else
@@ -180,20 +209,37 @@ public class PlayerMovement : MonoBehaviour
             mainCamera.transform.localPosition = new Vector3(0,mainCamera.transform.localPosition.y + (1.6f-mainCamera.transform.localPosition.y) * 0.08f,0);
             sliding = false;
         }
+
+        if(slideSlam > 0)
+        {
+            if(Input.GetKey(KeyCode.C) && !isGrounded)
+            {
+                velocity.y += gravity / (15 / slideSlam);
+            }
+        }
+        prevYVel = velocity.y;
     }
 
     void handleAbilities()
     {
-        if(Input.GetKey(KeyCode.E) && isGrounded)
-        {
-            Dash();
-        }
+        velocity += velocityQueue;
+        velocityQueue = Vector3.zero;
     }
 
     public void Dash()
     {
-        velocity.z += Mathf.Cos(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Mathf.Cos(mainCamera.transform.eulerAngles.x * Mathf.Deg2Rad) * dashPower;
-        velocity.x += Mathf.Sin(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Mathf.Cos(mainCamera.transform.eulerAngles.x * Mathf.Deg2Rad) *  dashPower;
-        velocity.y += -Mathf.Sin(mainCamera.transform.eulerAngles.x * Mathf.Deg2Rad) * dashPower;
+        velocityQueue.z += dashHorizontalMultiplier * Mathf.Cos(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Mathf.Cos(mainCamera.transform.eulerAngles.x * Mathf.Deg2Rad) * dashPower;
+        velocityQueue.x += dashHorizontalMultiplier * Mathf.Sin(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Mathf.Cos(mainCamera.transform.eulerAngles.x * Mathf.Deg2Rad) *  dashPower;
+        velocityQueue.y += -Mathf.Sin(mainCamera.transform.eulerAngles.x * Mathf.Deg2Rad) * dashPower;
+    }
+
+    public void Flip()
+    {
+        velocityQueue.z += flipPower * Mathf.Cos(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad);
+        velocityQueue.x += flipPower * Mathf.Sin(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad);
+        if (isGrounded)
+        {
+            velocityQueue.y = Mathf.Sqrt(jumpHeight * -3 * gravity);
+        }
     }
 }
