@@ -90,3 +90,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   chargeTime: 4
   dashSound: {fileID: 8300000, guid: af62ec543b98a174db3e2a12745392a4, type: 3}
+  onRight: 0

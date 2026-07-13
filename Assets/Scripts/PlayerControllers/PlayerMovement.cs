@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.ProBuilder.MeshOperations;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,9 +16,13 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.05f;
     public LayerMask groundMask;
 
+    public Transform wallCheck;
+    public float wallDistance = 1.05f;
+
     Vector3 velocity;
     Vector3 velocityQueue;
     public bool isGrounded;
+    public bool touchingWall;
 
     public static float stamina = 100;
     public float staminaRegenRate = 2;
@@ -42,8 +47,10 @@ public class PlayerMovement : MonoBehaviour
     
     public float flipPower = 80f;
 
-    public float maxAirJumps = 1;
+    public int maxAirJumps = 1;
     float airJumps;
+
+    public int wallJump = 1;
 
     float slideSlam = 1;
     float prevYVel = 0;
@@ -57,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        touchingWall = Physics.CheckSphere(wallCheck.position, wallDistance, groundMask);
 
         handleJump();
 
@@ -98,8 +106,13 @@ public class PlayerMovement : MonoBehaviour
 
             airJumps = maxAirJumps;
         } else
-        {
-            if(Input.GetButton("Jump") && stamina >= jumpCost && canJump && airJumps > 0)
+        {   if(Input.GetButton("Jump") && stamina >= jumpCost * 1.5 && canJump && wallJump > 0 && touchingWall)
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+                stamina -= jumpCost * 1.5f;
+                canJump = false;
+            }
+            else if(Input.GetButton("Jump") && stamina >= jumpCost && canJump && airJumps > 0)
             {
                 velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
                 stamina -= jumpCost;
