@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform wallCheck;
     public float wallDistance = 1.05f;
 
-    Vector3 velocity;
+    public Vector3 velocity;
     Vector3 velocityQueue;
     public bool isGrounded;
     public bool touchingWall;
@@ -55,6 +55,9 @@ public class PlayerMovement : MonoBehaviour
     float slideSlam = 1;
     float prevYVel = 0;
 
+    public bool queuedTeleport = false;
+    public Transform teleportPosition;
+
     void Start()
     {
 
@@ -79,6 +82,8 @@ public class PlayerMovement : MonoBehaviour
         handleStamina();
 
         handleAbilities();
+
+        handleTeleport();
 
         velocity.y += gravity * Time.deltaTime;
 
@@ -253,6 +258,16 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded)
         {
             velocityQueue.y = Mathf.Sqrt(jumpHeight * -3 * gravity);
+        }
+    }
+
+    public void handleTeleport()
+    {
+        if (queuedTeleport)
+        {
+            queuedTeleport = false;
+            transform.position = teleportPosition.position;
+            Physics.SyncTransforms();
         }
     }
 }

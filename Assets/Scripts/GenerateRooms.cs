@@ -8,7 +8,7 @@ public class GenerateRooms : MonoBehaviour
 
     public GameObject upgradeRoom;
     public GameObject player;
-    public int spawnDistance = 100;
+    public int spawnDistance = 1000;
     public int roomsPerUpgradeRoom = 50;
 
     public static bool inUpgradeRoom = false;
