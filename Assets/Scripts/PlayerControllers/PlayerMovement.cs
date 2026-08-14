@@ -1,6 +1,8 @@
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.ProBuilder.MeshOperations;
+using UnityEngine.VFX;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -57,6 +59,10 @@ public class PlayerMovement : MonoBehaviour
 
     public bool queuedTeleport = false;
     public Transform teleportPosition;
+
+    public VisualEffect impactBeam;
+    public GameObject impactEffect;
+    public float impactStrength = 15f;
 
     void Start()
     {
@@ -269,5 +275,30 @@ public class PlayerMovement : MonoBehaviour
             transform.position = teleportPosition.position;
             Physics.SyncTransforms();
         }
+    }
+
+    public void Impact()
+    {
+        RaycastHit raycastHit;
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f,0.5f,0));
+
+        if(Physics.Raycast(ray, out raycastHit)){
+            impactBeam.SetFloat("Length", raycastHit.distance/2);
+            impactBeam.Play();
+
+            Vector3 rayDirection = (Camera.main.transform.position - raycastHit.point).normalized;
+            rayDirection *= 1f;
+
+            Instantiate(impactEffect, raycastHit.point + rayDirection, quaternion.identity);
+            print(raycastHit.point);
+        } else
+        {
+            impactBeam.SetFloat("Length", 100f);
+            impactBeam.Play();
+            print("not hit");
+        }
+        velocityQueue.z += Mathf.Cos(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Mathf.Cos(mainCamera.transform.eulerAngles.x * Mathf.Deg2Rad) * -impactStrength;
+        velocityQueue.x += Mathf.Sin(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * Mathf.Cos(mainCamera.transform.eulerAngles.x * Mathf.Deg2Rad) *  -impactStrength;
+        velocityQueue.y += -Mathf.Sin(mainCamera.transform.eulerAngles.x * Mathf.Deg2Rad) * -impactStrength;
     }
 }

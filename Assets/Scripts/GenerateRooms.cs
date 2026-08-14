@@ -25,7 +25,7 @@ public class GenerateRooms : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        while(player.transform.position.z >= transform.position.z - spawnDistance && !inUpgradeRoom)
+        while(!inUpgradeRoom)
         {
             spawnRoom();
         }
