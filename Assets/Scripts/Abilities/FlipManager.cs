@@ -20,10 +20,6 @@ public class FlipManager : MonoBehaviour
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
 
         charge = chargeTime;
-        if (onRight)
-        {
-            chargeMeter.fillClockwise = false;
-        }
 
         cameraFlip = Camera.main.GetComponent<CameraFlip>();
     }
@@ -48,5 +44,13 @@ public class FlipManager : MonoBehaviour
         }
 
         chargeMeter.fillAmount = charge/chargeTime/2;
+
+        if (chargeMeter.fillClockwise)
+        {
+            onRight = false;
+        } else
+        {
+            onRight = true;
+        }
     }
 }

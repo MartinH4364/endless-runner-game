@@ -21,10 +21,6 @@ public class RemoveObstacleManager : MonoBehaviour
         chargeMeter = GetComponent<UnityEngine.UI.Image>();
 
         charge = chargeTime;
-        if (onRight)
-        {
-            chargeMeter.fillClockwise = false;
-        }
 
         removeObstacleGraph = removeObstacleEffect.GetComponent<VisualEffect>();
     }
@@ -58,5 +54,13 @@ public class RemoveObstacleManager : MonoBehaviour
         }
 
         chargeMeter.fillAmount = charge/chargeTime/2;
+
+        if (chargeMeter.fillClockwise)
+        {
+            onRight = false;
+        } else
+        {
+            onRight = true;
+        }
     }
 }

@@ -89,4 +89,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TeleportManager
   chargeTime: 10
+  teleportEffects: {fileID: 1207702244120164827, guid: bc794af13af067540ac8760f3e0e1973, type: 3}
   onRight: 0
+  throwPower: 10

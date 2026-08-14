@@ -1161,6 +1161,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6624e165d7ade5141945291b0bf08967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  leftAbilityText: {fileID: 5758158471919491780}
+  rightAbilityText: {fileID: 3779061099550832301}
+  abilities:
+  - {fileID: 5287861795452500239, guid: d33dd426c1333bd4fbcfeac4848df837, type: 3}
 --- !u!1 &7075647130958247178
 GameObject:
   m_ObjectHideFlags: 0
@@ -2066,6 +2070,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3994208425600454716, guid: 1ff516bead6399b46b56e3c5f8ed51ca, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7254894604547095378, guid: 1ff516bead6399b46b56e3c5f8ed51ca, type: 3}
     m_RemovedGameObjects: []
@@ -2243,6 +2251,10 @@ PrefabInstance:
     - target: {fileID: 6536190379280158191, guid: ca7a3c7f09ab6704e8422bc0eb080ff7, type: 3}
       propertyPath: m_Name
       value: Impact
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536190379280158191, guid: ca7a3c7f09ab6704e8422bc0eb080ff7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

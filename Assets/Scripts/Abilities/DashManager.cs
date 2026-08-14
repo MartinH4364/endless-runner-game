@@ -21,10 +21,6 @@ public class DashManager : MonoBehaviour
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         audioSource = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
         charge = chargeTime;
-        if (onRight)
-        {
-            chargeMeter.fillClockwise = false;
-        }
     }
 
     // Update is called once per frame
@@ -48,6 +44,12 @@ public class DashManager : MonoBehaviour
 
         chargeMeter.fillAmount = charge/chargeTime/2;
 
-
+        if (chargeMeter.fillClockwise)
+        {
+            onRight = false;
+        } else
+        {
+            onRight = true;
+        }
     }
 }

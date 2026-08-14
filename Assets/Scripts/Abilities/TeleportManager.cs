@@ -22,11 +22,6 @@ public class TeleportManager : MonoBehaviour
         chargeMeter = GetComponent<UnityEngine.UI.Image>();
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
 
-        if (onRight)
-        {
-            chargeMeter.fillClockwise = false;
-        }
-
         charge = chargeTime;
     }
 
@@ -58,6 +53,13 @@ public class TeleportManager : MonoBehaviour
         }
 
         chargeMeter.fillAmount = charge/chargeTime/2;
- 
+        
+        if (chargeMeter.fillClockwise)
+        {
+            onRight = false;
+        } else
+        {
+            onRight = true;
+        }
     }
 }
