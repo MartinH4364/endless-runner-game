@@ -38,10 +38,10 @@ public class GenerateRooms : MonoBehaviour
         float brokenRoomChance = 0;
         if(UpgradeCalculator.TotalUpgrades >= 2)
         {
-            brokenRoomChance = 0.1f;
+            brokenRoomChance = 0.2f;
         }else if(UpgradeCalculator.TotalUpgrades >= 5)
         {
-            brokenRoomChance = 0.3f;
+            brokenRoomChance = 0.4f;
         }
 
         if(roomsSpawned != nextUpgradeRoom - 1){

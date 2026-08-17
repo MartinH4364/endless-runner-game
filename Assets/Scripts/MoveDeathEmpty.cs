@@ -4,7 +4,7 @@ public class MoveDeathEmpty : MonoBehaviour
 {
     public GameObject player;
     public float baseSpeed = 5;
-    public float distanceForSpeedIncrease = 25;
+    public float distanceForSpeedIncrease = 4;
     bool activated = false;
     public static bool inSafeRoom = false;
 

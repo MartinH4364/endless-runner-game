@@ -1,4 +1,3 @@
-using NUnit.Framework.Constraints;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +9,15 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene("Game");
+        UpgradeCalculator.Jump = 0;
+        UpgradeCalculator.Speed = 0;
+        UpgradeCalculator.Sprint = 0;
+        UpgradeCalculator.Stamina = 0;
+        UpgradeCalculator.SlowDestruction = 0;
+        UpgradeCalculator.AirJumps = 0;
+        UpgradeCalculator.SlideSlam = 0;
+        UpgradeCalculator.WallJumps = 0;
+        UpgradeCalculator.TotalUpgrades = 0;
     }
 
     public void Options()

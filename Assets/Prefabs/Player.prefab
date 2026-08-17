@@ -1420,7 +1420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   controller: {fileID: 8354225893022928970}
   mainCamera: {fileID: 5673349054663352443}
-  speed: 12
+  speed: 18
   gravity: -39.24
   jumpHeight: 5
   jumpCost: 10
@@ -1447,6 +1447,7 @@ MonoBehaviour:
   flipPower: 150
   maxAirJumps: 1
   wallJump: 1
+  slideSlam: 0
   queuedTeleport: 0
   teleportPosition: {fileID: 0}
   impactBeam: {fileID: 8226071132637336874}

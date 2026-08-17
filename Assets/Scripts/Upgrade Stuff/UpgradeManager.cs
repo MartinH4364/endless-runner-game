@@ -50,6 +50,19 @@ public class UpgradeManager : MonoBehaviour
             {
                 UpgradeCalculator.SlowDestruction += 1;
             }
+            if(name == "DoubleJumpUpgrade")
+            {
+                UpgradeCalculator.AirJumps += 1;
+            }
+            if(name == "SlideUpgrade")
+            {
+                UpgradeCalculator.SlideSlam += 1;
+            }
+            if(name == "WallJumpUpgrade")
+            {
+                UpgradeCalculator.WallJumps += 1;
+            }
+            UpgradeCalculator.TotalUpgrades += 1;
         }
 
         float moveDist = startPos.z - transform.position.z + 1;

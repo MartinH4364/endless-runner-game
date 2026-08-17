@@ -569,6 +569,11 @@ MonoBehaviour:
   - {fileID: 2662207208159053174, guid: ffda85f0f8c8ec2448087780fc42f1c0, type: 3}
   - {fileID: 6850947004646156968, guid: 03114aa6e7d3baa4fa0d32e2ad51ab97, type: 3}
   - {fileID: 4690805130459044867, guid: df63dfb2682eb7b49b632208ab2524f1, type: 3}
+  SilverUpgrades:
+  - {fileID: 4690805130459044867, guid: 0ff199b973c2be14183897d0155e7287, type: 3}
+  - {fileID: 4690805130459044867, guid: 4d56af57642aa434db101d7d2af2644f, type: 3}
+  - {fileID: 4690805130459044867, guid: 91e9d03f3e74c5f4093ab526c02cae8a, type: 3}
+  silverUpgradeChance: 0.25
 --- !u!82 &9002813299534350252
 AudioSource:
   m_ObjectHideFlags: 0
@@ -897,7 +902,7 @@ Transform:
   m_GameObject: {fileID: 8428997861707727428}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: 19.25, y: 2.25, z: 0}
+  m_LocalPosition: {x: 19.25, y: 2.25, z: 15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1042,7 +1047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 439773426706370841, guid: cb156e6665904de49a1598c7aa033e3b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 439773426706370841, guid: cb156e6665904de49a1598c7aa033e3b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1116,7 +1121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 439773426706370841, guid: cb156e6665904de49a1598c7aa033e3b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 439773426706370841, guid: cb156e6665904de49a1598c7aa033e3b, type: 3}
       propertyPath: m_LocalRotation.w

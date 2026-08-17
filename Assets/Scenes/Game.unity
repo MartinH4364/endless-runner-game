@@ -127,13 +127,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1219384976003258612, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1441346304476820372, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
       propertyPath: deathEmpty
       value: 
       objectReference: {fileID: 1864399158}
+    - target: {fileID: 2486720605045239439, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
+      propertyPath: m_Name
+      value: RemoveObstacleEffect
+      objectReference: {fileID: 0}
     - target: {fileID: 2611722548003765973, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422465979788817571, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
+      propertyPath: abilities.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422465979788817571, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
+      propertyPath: 'abilities.Array.data[1]'
+      value: 
+      objectReference: {fileID: 5823551498920694289, guid: 5bf72f109cead4745bffd847bdad3a6a, type: 3}
+    - target: {fileID: 3422465979788817571, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
+      propertyPath: 'abilities.Array.data[2]'
+      value: 
+      objectReference: {fileID: 6536190379280158191, guid: ca7a3c7f09ab6704e8422bc0eb080ff7, type: 3}
+    - target: {fileID: 3422465979788817571, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
+      propertyPath: 'abilities.Array.data[3]'
+      value: 
+      objectReference: {fileID: 3994208425600454716, guid: 1ff516bead6399b46b56e3c5f8ed51ca, type: 3}
+    - target: {fileID: 3422465979788817571, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
+      propertyPath: 'abilities.Array.data[4]'
+      value: 
+      objectReference: {fileID: 876738620281411380, guid: 6c158621869f1a344b4c84a0d60ce153, type: 3}
+    - target: {fileID: 3779061099550832301, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
+      propertyPath: m_margin.x
+      value: -71.36238
       objectReference: {fileID: 0}
     - target: {fileID: 3779061099550832301, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
       propertyPath: m_fontStyle
@@ -184,12 +216,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5758158471919491780, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
+      propertyPath: m_margin.z
+      value: -100.555786
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758158471919491780, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
       propertyPath: m_fontStyle
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8542371362370924125, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9191976352490461749, guid: 3f1dc7daad4774a44be5c2b8c421e60f, type: 3}
+      propertyPath: jumpCost
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -232,7 +272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoveDeathEmpty
   player: {fileID: 1480243817}
   baseSpeed: 5
-  distanceForSpeedIncrease: 25
+  distanceForSpeedIncrease: 7.5
 --- !u!4 &1864399160
 Transform:
   m_ObjectHideFlags: 0

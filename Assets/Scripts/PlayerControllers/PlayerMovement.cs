@@ -1,7 +1,5 @@
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.ProBuilder.MeshOperations;
 using UnityEngine.VFX;
 
 public class PlayerMovement : MonoBehaviour
@@ -9,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
     public Camera mainCamera;
 
-    public float speed = 12f;
+    public float speed = 18f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
     public float jumpCost = 10;
@@ -49,12 +47,12 @@ public class PlayerMovement : MonoBehaviour
     
     public float flipPower = 80f;
 
-    public int maxAirJumps = 1;
+    public int maxAirJumps = 0;
     float airJumps;
 
-    public int wallJump = 1;
+    public int wallJump = 0;
 
-    float slideSlam = 1;
+    public float slideSlam = 0;
     float prevYVel = 0;
 
     public bool queuedTeleport = false;
@@ -227,10 +225,10 @@ public class PlayerMovement : MonoBehaviour
                 velocity.x += Mathf.Sin(mainCamera.transform.eulerAngles.y * Mathf.Deg2Rad) * -prevYVel;
             }
             sliding = true;
-            mainCamera.transform.localPosition = new Vector3(0,mainCamera.transform.localPosition.y + (1.0f-mainCamera.transform.localPosition.y) * 0.08f,0);
+            mainCamera.transform.localPosition = new Vector3(0,mainCamera.transform.localPosition.y + (0.15f-mainCamera.transform.localPosition.y) * 0.2f,0);
         } else
         {
-            mainCamera.transform.localPosition = new Vector3(0,mainCamera.transform.localPosition.y + (1.6f-mainCamera.transform.localPosition.y) * 0.08f,0);
+            mainCamera.transform.localPosition = new Vector3(0,mainCamera.transform.localPosition.y + (1.6f-mainCamera.transform.localPosition.y) * 0.2f,0);
             sliding = false;
         }
 

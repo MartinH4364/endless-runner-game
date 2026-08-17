@@ -22,6 +22,8 @@ public class RemoveObstacleManager : MonoBehaviour
 
         charge = chargeTime;
 
+        removeObstacleEffect = GameObject.Find("RemoveObstacleEffect");
+
         removeObstacleGraph = removeObstacleEffect.GetComponent<VisualEffect>();
     }
 
