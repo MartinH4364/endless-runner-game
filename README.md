@@ -25,6 +25,8 @@ I have no idea if these choices are advanced or not because this is the first ga
 
 I think the most important technical decision was to use variables for x, y, and z velocity instead of applying Vector3.forward to the player. I wanted to make it so that the player would keep moving in the direction that they were moving in when they left the ground when in the air and also have less control over their movement when in the air. Using Vector3.forward would have allowed the code to be much simpler, but turning left or right while in the air would change the direction of "forward," allowing the player to turn midair. The added complexity of having a velocity system also allowed me to put different amounts of drag on the variables depending on if the player is in the air or sliding. To implement the movement abilities, I made it so that a change in the velocity would be queued when the key to activate an ability was pressed. That queued value would later be applied at a fixed time in the loop so that the resulting movement would be consistent every time the ability was used.
 
+To run this project locally, download the files and then open them using the latest version of unity.
+
 ## Credits
 
 Brackeys for various tutorials
