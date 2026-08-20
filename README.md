@@ -6,6 +6,9 @@ An endless platformer focused on movement mechanics and abilities.
 ## **https://drcooke123.itch.io/endless-runner-test**
 ^^Open Link Above^^
 
+**IMPORTANT: GAME MAY TAKE A WHILE TO LOAD (15-30 seconds) SO DON't WORRY IF IT FREEZES FOR A BIT AFTER YOU PRESS PLAY**
+**Controls are found on the itch.io page**
+
 Features
 
 *Core movement system with sprinting, jumping, and sliding
